@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import sunSvg from './sun.svg';
+import MoonSvg from './full-moon.svg';
+
 const Container = styled.div`
   width: 60px;
   height: 30px;
@@ -12,26 +15,11 @@ const Container = styled.div`
   box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
 `;
 
-const Toggle = styled.div`
+const ToggleIcon = styled.img`
   width: 22px;
   height: 22px;
-  border-radius: 50%;
-  background-color: #ffc207;
-  transition: 0.2s all ease-out;
+  transition: all 0.2s ease-out;
   position: relative;
-`;
-
-const Moon = styled.div`
-  position: absolute;
-  top: 50%;
-  margin-top: -10px;
-  left: -4px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: ${(props) => props.theme.card};
-  transform-origin: left center;
-  transition: 0.2s all ease-out;
 `;
 
 type SwitchProps = {
@@ -42,9 +30,10 @@ type SwitchProps = {
 export const Switch: React.FC<SwitchProps> = ({ value: on, onChange }) => {
   return (
     <Container onClick={() => onChange(!on)}>
-      <Toggle style={{ transform: `translate(${on ? 30 : 0}px)` }}>
-        <Moon style={{ transform: `scale(${on ? 1 : 0})` }} />
-      </Toggle>
+      <ToggleIcon
+        src={on ? MoonSvg : sunSvg}
+        style={{ transform: `translate(${on ? 30 : 0}px)` }}
+      />
     </Container>
   );
 };
