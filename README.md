@@ -1,3 +1,3 @@
 # Tasker ⚛️
 
-Simple Todo app to learn Recoil
+Simple Todo app to learn Recoil.
