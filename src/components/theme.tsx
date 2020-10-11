@@ -6,22 +6,37 @@ import styled, {
 
 export const colors = {
   dark: {
-    background: 'black',
-    card: 'gray',
-    text: 'white',
+    background: '#20252a',
+    card: '#404348',
+    text: '#dce1e8',
   },
-  light: { background: 'white', card: 'gray', text: 'black' },
+  light: {
+    background: '#e9ecf3',
+    card: '#ffffff',
+    text: '#20252a',
+  },
 };
 
 export const GlobalStyles = createGlobalStyle`
   body {
-    background: ${(props: any) => props.theme.background};
+    background-color: ${(props: any) => props.theme.background};
+    color: ${(props: any) => props.theme.text};
     display: flex;
     flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-family: Sen;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
   }
-
   #root {
     width: 100vw;
+  }
+  * {
+    transition: 0.2s color ease-in-out, 0.2s background-color ease-in-out;
   }
 `;
 
@@ -39,8 +54,9 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 };
 
 export const Page = styled.div`
-  width: 100%auto;
-  max-width: 600px;
+  width: 100%;
+  max-width: 560px;
   padding: 20px;
+  box-sizing: border-box;
   margin: 0 auto;
 `;

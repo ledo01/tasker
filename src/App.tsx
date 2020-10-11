@@ -1,13 +1,28 @@
 import React from 'react';
-import { Page, ThemeProvider, GlobalStyles } from './components/theme';
+import { Input } from './components/Input';
+import { Stats } from './components/Stats';
+import { Tasks } from './components/Tasks';
+import { ThemeProvider, GlobalStyles, Page } from './components/theme';
+import { Header } from './components/Header';
 
-function App() {
+const Home = () => {
+  return (
+    <Page>
+      <Header />
+      <Stats />
+      <Tasks />
+      <Input />
+    </Page>
+  );
+};
+
+const App = () => {
   return (
     <ThemeProvider darkMode={true}>
       <GlobalStyles />
-      <Page>Test</Page>
+      <Home />
     </ThemeProvider>
   );
-}
+};
 
 export default App;
