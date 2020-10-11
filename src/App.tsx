@@ -1,9 +1,11 @@
 import React from 'react';
+import { useRecoilValue } from 'recoil';
+
 import { Input } from './components/Input';
 import { Stats } from './components/Stats';
 import { Tasks } from './components/Tasks';
 import { ThemeProvider, GlobalStyles, Page } from './components/theme';
-import { Header } from './components/Header';
+import { Header, darkModeState } from './components/Header';
 
 const Home = () => {
   return (
@@ -17,8 +19,9 @@ const Home = () => {
 };
 
 const App = () => {
+  const darkMode = useRecoilValue(darkModeState);
   return (
-    <ThemeProvider darkMode={true}>
+    <ThemeProvider darkMode={darkMode}>
       <GlobalStyles />
       <Home />
     </ThemeProvider>
